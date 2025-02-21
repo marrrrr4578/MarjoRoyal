@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Salud y el Bienestar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5dc;
+            color: #333;
+        }
+        header {
+            background: #1e3a5f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2em;
+        }
+        .container {
+            width: 60%; /* He reducido el ancho del contenedor */
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #1e3a5f;
+            font-size: 1.5em;
+        }
+        .button {
+            padding: 8px 25px;
+            background: #2a4d69;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background: #3b5f7d;
+        }
+        .button-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #2a4d69;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        /* Estilo del Popup */
+        .popup {
+            display: none; /* Inicia oculto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0); /* Fondo oscuro */
+            background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro transparente */
+        }
+
+        .popup-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Entrevistas sobre Padecimientos y su Impacto en la Salud</h1>
+    </header>
+    <div class="container">
+        <h2> Objetivo de las entrevistas</h2>
+        <p>El propósito de estas entrevistas es comprender cómo diferentes padecimientos afectan la vida diaria de las personas, tomando en cuenta su edad y contexto. Se busca identificar patrones comunes en la forma en que los síntomas influyen en su bienestar físico, emocional y social.</p>
+        <p>Además, se pretende analizar las estrategias que cada entrevistado utiliza para sobrellevar su enfermedad, así como su percepción sobre el impacto que tiene en su estilo de vida. Esta información servirá para obtener una visión más profunda de cómo las enfermedades afectan no solo a nivel físico, sino también en lo emocional y social.</p>
+      
+        <h2>Metodología para realizar entrevistas</h2>
+        <p>Las entrevistas fueron realizadas de manera informal con tres personas de distintas edades. Se entrevistó a una joven de 24 años, un adulto de 45 años y un anciano de 72 años. Las preguntas se centraron en los siguientes aspectos: el padecimiento que cada persona enfrenta, cómo este afecta su día a día, qué medidas toman para manejarlo, y cómo influye en su estado emocional.</p>
+        <p>tuvieron en cuenta factores como el acceso a tratamientos médicos, el apoyo social y los cambios en las rutinas diarias debido a la enfermedad. La metodología fue diseñada para captar tanto la experiencia individual de cada entrevistado como los elementos comunes entre ellos.</p>
+
+        <h2>Análisis de resultados obtenidos</h2>
+        <p>Los testimonios recopilados muestran variaciones en la forma en que las personas perciben y manejan las enfermedades según su edad. Mientras que los jóvenes tienden a minimizar algunos síntomas y se enfocan en soluciones rápidas, los adultos y ancianos muestran una preocupación mayor por las implicaciones a largo plazo</p>
+        <p>En términos emocionales, se observó que los más jóvenes tienen más dificultades para lidiar con los efectos emocionales de las enfermedades crónicas, mientras que los adultos y ancianos, aunque inicialmente preocupados, tienden a adaptarse mejor con el tiempo. Además, se identificó que el impacto emocional de la enfermedad puede ser tan significativo como el físico, ya que los entrevistados expresaron frustración, ansiedad o incluso resignación frente a sus limitaciones.</p>
+
+        <h2>Casos estudiados y patrones encontrados</h2>
+        <p><strong>Entrevista 1: Sofía Morales Reye, 20 años</strong></p>
+        <p><button class="button" onclick="showPopup('sofia')">Ver Detalles de Sofía</button></p>
+
+        <p><strong>Entrevista 2: Diana Reyes De Ruiz, 45 años</strong></p>
+        <p><button class="button" onclick="showPopup('carlos')">Ver Detalles de Carlos</button></p>
+
+        <p><strong>Entrevista 3: Mario Sosa Zacarías, 72 años</strong></p>
+        <p><button class="button" onclick="showPopup('sosa')">Ver Detalles de Sosa</button></p>
+
+        <h3>Patrones encontrados:</h3>
+        <ul>
+    <li><strong>Impacto emocional:</strong> Todos los entrevistados experimentan frustración debido a su condición. Sin embargo, los más jóvenes parecen tener más dificultades para lidiar emocionalmente con enfermedades crónicas, mientras que los adultos y ancianos, aunque inicialmente preocupados, tienden a aceptar su situación con el tiempo.</li>
+    <li><strong>Adaptación y manejo:</strong> Los jóvenes tienden a buscar soluciones rápidas, mientras que los adultos y ancianos desarrollan estrategias a largo plazo para vivir con su padecimiento. Esta diferencia está influenciada por la experiencia y la necesidad de encontrar estabilidad en su vida diaria.</li>
+    <li><strong>Factores desencadenantes:</strong> El estrés, la alimentación y el clima son factores clave en la intensidad de los síntomas. Los jóvenes destacaron el estrés como el principal factor, mientras que los adultos y ancianos mencionaron la alimentación y el clima como elementos relevantes.</li>
+    <li><strong>Apoyo social:</strong> Los adultos mayores dependen más del apoyo de su familia, mientras que los jóvenes tienden a ser más independientes. No obstante, cuando la enfermedad es grave, los jóvenes también buscan ayuda.</li>
+    <li><strong>Cambio de rutina:</strong> En los tres casos, la enfermedad obligó a los entrevistados a ajustar su rutina diaria, ya sea en la alimentación, el descanso o la actividad física. Aunque al principio fue difícil, estos cambios eventualmente se convirtieron en parte de su vida.</li>
+    <li><strong>Percepción del futuro:</strong> Los jóvenes ven su padecimiento como algo temporal, mientras que los adultos y ancianos lo perciben como una condición con la que deben aprender a vivir. Esto refleja cómo la edad influye en la forma en que las personas enfrentan los problemas de salud.</li>
+</ul>
+
+        <a href="index.html" class="button-link">Regresar al Menú</a>
+    </div>
+
+    <!-- Popups -->
+    <div id="sofia" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('sofia')">&times;</span>
+            <h3>Entrevista 1: Sofía Morales Reyes, 20 años</h3>
+<p><strong>Padecimiento:</strong> Migrañas crónicas.</p>
+<p><strong>Impacto:</strong> Sofía menciona que sus migrañas afectan su desempeño laboral y su vida social. A veces tiene que cancelar planes debido al fuerte dolor, lo que ha generado malentendidos con amigos y familiares. También se ve limitada en sus estudios debido a la sensibilidad a la luz y el ruido.</p>
+<p><strong>Manejo:</strong> Sofía usa analgésicos y trata de dormir lo suficiente, pero el estrés y la exposición a la luz de la computadora empeoran su situación. Aunque ha probado cambiar su dieta y reducir la cafeína, no siempre logra evitar las crisis. Ha consultado con varios médicos, pero aún no encuentra una solución definitiva.</p>
+<p><strong>Aspecto emocional:</strong> Se siente frustrada por la falta de comprensión de los demás. También experimenta ansiedad al pensar en la posibilidad de que una migraña ocurra en un momento clave de su vida. Este padecimiento ha afectado significativamente su bienestar mental.</p>
+        </div>
+    </div>
+
+    <div id="carlos" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('carlos')">&times;</span>
+            <h3>Entrevista 2: Diana Reyes de Ruis, 45 años</h3>
+<p><strong>Padecimiento:</strong> Diabetes tipo 2.</p>
+<p><strong>Impacto:</strong> Diana ha tenido que modificar su dieta y rutina. Aunque al principio fue difícil adaptarse, ahora está más consciente de su salud. Su diagnóstico también ha impulsado a su familia a adoptar hábitos más saludables. Sin embargo, menciona que a veces siente que su enfermedad lo hace depender de los demás.</p>
+<p><strong>Manejo:</strong> Diana sigue una dieta estricta, toma medicación y se esfuerza por mantener una rutina de ejercicios. También ha aprendido a leer etiquetas de alimentos y evitar aquellos que pueden perjudicar su salud.</p>
+<p><strong>Aspecto emocional:</strong> Al principio, se sintió deprimida y culpable por no haber cuidado su salud, pero ha aceptado su condición. Aunque su preocupación por el futuro sigue presente, se siente agradecida por la estabilidad que ha logrado mantener hasta ahora.</p>          
+        </div>
+    </div>
+
+    <div id="sosa" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup('sosa')">&times;</span>
+            <h3>Entrevista 3: Mario Sosa Zacarías, 72 años</h3>
+<p><strong>Padecimiento:</strong> Artrosis en las rodillas.</p>
+<p><strong>Impacto:</strong> La movilidad reducida le ha dificultado realizar actividades cotidianas. Anteriormente podía caminar largas distancias y hacer tareas en casa sin problema, pero ahora necesita ayuda para evitar caídas. Ha tenido que renunciar a algunas actividades que disfrutaba, como hacer compras o visitar amigos.</p>
+<p><strong>Manejo:</strong> Utiliza medicamentos para el dolor y realiza ejercicios suaves, aunque el clima frío afecta su condición. Usa un bastón para caminar y ha adaptado su hogar para evitar accidentes. A pesar de las limitaciones, trata de mantenerse activo realizando pequeñas tareas.</p>
+<p><strong>Aspecto emocional:</strong> Se siente triste por la pérdida de movilidad, pero valora el apoyo de su familia. Aunque le preocupa ser una carga para sus seres queridos, se siente agradecido por el cuidado que recibe y trata de mantener una actitud positiva.</p>
+        </div>
+    </div>
+
+    <script>
+        function showPopup(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function closePopup(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
+</body>
+</html>
